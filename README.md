@@ -2,7 +2,7 @@
 
 Is an old command line interface aliens game is missing in your life, check out stuck-in-space. Try and escape the aliens, but beware of Jeff Bezos!
 
-[Enjoy the project here!](https://stuck-in-space.netlify.app/)
+[Enjoy the project here!](https://stuckinspace.herokuapp.com/)
 
 ## Description
 
@@ -20,6 +20,8 @@ While developing my coding skills, the idea of building a game intrigued me. I w
 Project is created with:
 
 - React.js version 17.0.2
+- Ruby version 2.7.4
+- Rails version 7.0.0
 - Semantic UI - (for styling)
 - Heroku
 - Typewriter Effect version 2.18
@@ -29,8 +31,9 @@ Project is created with:
 To run this project, install it locally using npm:
 
 ```
-$ cd ../stuck-in-space-front
-$ npm start
+$ cd ../stuck-in-space
+$ npm start --prefix client
+$ rails s
 
 ```
 
