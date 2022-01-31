@@ -3,8 +3,8 @@ class Api::UsersController < ApplicationController
   def create
     user =
     User.create!(user_params)
-    User.update(health: 3, score: 0, is_dead: 0, room_id: 0)
-    User.save
+    user.update!(health: 3, score: 0, is_dead: 0, room_id: 0)
+    user.save!
     if user.valid?
         session[:user_id] = user.id
         render json: user, status: :created
@@ -12,15 +12,16 @@ class Api::UsersController < ApplicationController
   end
 
   def score
-    user_details = User.find(params[:id])
-    user_details.update(
+    user = User.find_by(id: session[:user_id])
+    user.update!(
       room_id: params[:room_id],
       is_dead: true,
       score: params[:score],
       minutes_in_game: params[:minutes_in_game],
       seconds_in_game: params[:seconds_in_game],
     )
-    render json: user_details
+    user.save!
+    render json: user
   end
 
   def index

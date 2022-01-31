@@ -20,7 +20,7 @@ const SubmitBox = ({
   const [roomInfo, setRoomInfo] = useState([]);
   const [targetedObject, setTargetedObject] = useState(null);
   const [inventory, setInventory] = useState([]);
-  const [prevRoomInfo, setPrevRoomInfo] = useState([]);
+  //const [prevRoomInfo, setPrevRoomInfo] = useState([]);
 
   let itemNames = [...items].map((i) => i.name.toLowerCase());
   function handleChange(e) {
@@ -32,15 +32,14 @@ const SubmitBox = ({
     fetch(`api/room/${currRoom}`)
       .then((r) => r.json())
       .then((data) => {
-        setRoomInfo((roomInfo) => {
-          setPrevRoomInfo(roomInfo);
-          return data;
-        });
+        console.log(data);
+        setRoomInfo(data);
       });
 
     fetch(`/api/item/${currRoom}`)
       .then((r) => r.json())
       .then((data) => {
+        console.log(data)
         setItems(data);
       });
   }, [currRoom]);
@@ -359,7 +358,7 @@ const SubmitBox = ({
   function handleDeath() {
     setDisplayFastText(null);
     setDeathElement(true);
-    fetch(`https://serene-island-13021.herokuapp.com/user/${userDetails.id}`, {
+    fetch(`/api/addscore`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -372,7 +371,9 @@ const SubmitBox = ({
       }),
     })
       .then((r) => r.json())
-      .then((data) => {});
+      .then((data) => {
+        console.log(data)
+      });
   }
 
   return (

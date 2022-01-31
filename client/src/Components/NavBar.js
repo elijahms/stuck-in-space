@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <div>
       <NavLink
-        class="navBar"
+        className="navBar"
         activeStyle={{
           color: "#229c09",
         }}
@@ -15,7 +15,7 @@ const NavBar = () => {
         Game
       </NavLink>
       <NavLink
-        class="navBar2"
+        className="navBar2"
         activeStyle={{
           color: "#229c09",
         }}

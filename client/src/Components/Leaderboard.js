@@ -8,6 +8,7 @@ const Leaderboard = () => {
       .then((r) => r.json())
       .then((data) => {
         setLeaderboard(data);
+        console.log(data)
       });
   }, []);
 
@@ -18,7 +19,7 @@ const Leaderboard = () => {
     .slice(0, 15);
 
   return (
-    <div class="leaderboard-container">
+    <div className="leaderboard-container">
       <h1>Leaderboard:</h1>
       <p>{theLeaderboard}</p>
     </div>

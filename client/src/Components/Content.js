@@ -5,7 +5,7 @@ import DisplayText from "./DisplayText";
 import SubmitBox from "./SubmitBox";
 import GameStart from "./GameStart";
 import Death from "./Death";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Grid } from "semantic-ui-react";
 
 const Content = () => {
@@ -21,6 +21,31 @@ const Content = () => {
   const [displayText, setDisplayText] = useState(
     "Enter the realm of OUTER SPACE and attempt to make your way out, but beware of meteors, exploding satellites, and billionaires' vanity-project-rocketships! \n \n Enter a Username and Email"
   );
+
+    useEffect(() => {
+      if (collectedUser) {
+        let totalSeconds = 0;
+        let timeInterval = setInterval(setTime, 1000);
+        function setTime() {
+          ++totalSeconds;
+          setSecond(pad(totalSeconds % 60));
+          setMinute(pad(parseInt(totalSeconds / 60)));
+        }
+
+        function pad(val) {
+          let valString = val + "";
+          if (valString.length < 2) {
+            return "0" + valString;
+          } else {
+            return valString;
+          }
+        }
+
+        return () => {
+          clearInterval(timeInterval);
+        };
+      }
+    }, [collectedUser]);
 
   return (
     <div className="content-container">
