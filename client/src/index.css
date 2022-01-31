@@ -1,0 +1,161 @@
+body {
+  background-color: black;
+  height: 100vh;
+  font-family: "TerminalFont";
+  color: #4af626;
+  width: 100vw;
+}
+::selection {
+  background: #4af626;
+}
+@font-face {
+  font-family: "TerminalFont";
+  src: local("TerminalFont"), url(./Fonts/Modeseven-L3n5.ttf) format("truetype");
+}
+.header-file {
+  text-align: center;
+  color: white;
+}
+
+.big-grid {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.banner-1 {
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  color: #4af626;
+  min-width: 250px;
+  font-size: 100%;
+  margin-bottom: 3%;
+  outline-color: white;
+  outline-style: ridge;
+}
+.banner-2 {
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  color: #4af626;
+  min-width: 250px;
+  font-size: 100%;
+  margin-bottom: 3%;
+  outline-color: white;
+  outline-style: ridge;
+}
+.banner-3 {
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  margin-bottom: 3%;
+  color: #4af626;
+  min-width: 200px;
+  font-size: 100%;
+  outline-color: white;
+  outline-style: ridge;
+}
+
+.navBar {
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 8vw;
+  margin-left: 41vw;
+  margin-bottom: 1%;
+}
+
+.navBar2 {
+  display: inline-grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 8vw;
+  margin-right: 41vw;
+  margin-bottom: 1%;
+}
+
+.content-container {
+  width: 70vw;
+  border: 2px solid white;
+  margin: 0 auto;
+  justify-content: center;
+  padding: 1%;
+  overflow: auto;
+  white-space: pre-line;
+  font-family: "TerminalFont";
+}
+
+.leaderboard-container {
+  width: 25vw;
+  min-height: 55vh;
+  border: 2px solid white;
+  margin: 0 auto;
+  justify-content: center;
+  padding: 1%;
+  align-items: center;
+  overflow: auto;
+  white-space: pre-line;
+  font-family: "TerminalFont";
+  text-align: center;
+}
+
+.game-start {
+  white-space: pre-line;
+}
+
+.game-div {
+  min-height: 50vh;
+  position: relative;
+}
+
+.no-outline {
+  width: 100%;
+  background: black;
+  font-family: "TerminalFont";
+  color: #4af626;
+  border: hidden;
+  outline: none;
+}
+.no-outline:focus {
+  outline: none;
+}
+.play-button {
+  width: 100%;
+  background: black;
+  font-family: "TerminalFont";
+  color: #4af626;
+  border: hidden;
+  outline: none;
+  position: absolute;
+  bottom: 0px;
+}
+.play-button:hover {
+  color: #229c09 !important;
+}
+.terminal-submit {
+  background: black;
+  font-family: "TerminalFont";
+  color: #4af626;
+  border: hidden;
+  outline: none;
+  float: left;
+  width: 50%;
+}
+.terminal-text {
+  background: black;
+  font-family: "TerminalFont";
+  color: #4af626;
+  border: hidden;
+  outline: none;
+  padding-right: 1%;
+  float: left;
+}
+
+.main-display {
+  min-height: 50vh;
+}
