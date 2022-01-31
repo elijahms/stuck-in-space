@@ -1,5 +1,4 @@
 class Api::RoomsController < ApplicationController
-    skip_before_action :authorize, only: :find_room, :find_item
 
   def find_room
     room = Room.find(params[:id])

@@ -1,5 +1,4 @@
 class Api::UsersController < ApplicationController
-skip_before_action :authorize, only: :create, :score, :index, :leaderboard
 
   def create
     new_user =
