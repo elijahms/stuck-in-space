@@ -2,8 +2,6 @@
 
 Is an old command line interface aliens game is missing in your life, check out stuck-in-space. Try and escape the aliens, but beware of Jeff Bezos!
 
-Note - this is a fullstack project w/ the backend built on a different repo. It can be viewed here: [Backend](https://github.com/elijahms/StuckinSpace)
-
 [Enjoy the project here!](https://stuck-in-space.netlify.app/)
 
 ## Description
@@ -23,7 +21,7 @@ Project is created with:
 
 - React.js version 17.0.2
 - Semantic UI - (for styling)
-- Netlify
+- Heroku
 - Typewriter Effect version 2.18
 
 ## Setup
