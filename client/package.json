@@ -1,6 +1,7 @@
 {
   "name": "stuck-in-space-front",
   "version": "0.1.0",
+  "proxy": "http://localhost:3000",
   "private": true,
   "dependencies": {
     "browserlist": "^1.0.1",
@@ -13,7 +14,7 @@
     "typewriter-effect": "^2.18.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=4000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
