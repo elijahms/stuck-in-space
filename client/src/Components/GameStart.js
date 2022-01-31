@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Typewriter from "typewriter-effect";
 
 const GameStart = ({
@@ -8,9 +8,8 @@ const GameStart = ({
   setDisplayText,
   setUserDetails,
 }) => {
-  const [checkUser, setCheckUser] = useState([]);
   const [form, setForm] = useState({
-    username: "0",
+    name: "0",
     email: null,
   });
 
@@ -18,43 +17,38 @@ const GameStart = ({
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  useEffect(() => {
-    fetch(`/api/allusers`)
-      .then((r) => r.json())
-      .then((data) => {
-        setCheckUser(data);
-      });
-  }, []);
-
   function handleSubmit(e) {
     e.preventDefault();
-    if (form.username.length < 3 || form.email === null) {
+    if (form.name.length < 3 || form.email === null) {
       setDisplayText("Please enter a valid username and email.");
       e.target.reset();
-    } else if (
-      [...checkUser]
-        .map((u) => u.toLowerCase())
-        .includes(form.username.toLowerCase())
-    ) {
-      setDisplayText(
-        `${form.username} is a taken username! Please select another. \n \n May we suggest:\n \n ${form.username}69\n ${form.username}420\n xX${form.username}Xx\n the_real_${form.username}`
-      );
-      e.target.reset();
     } else {
-      fetch(`/api/newuser`, {
+      console.log(form)
+      fetch("/api/newuser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(form),
-      })
-        .then((r) => r.json())
-        .then((data) => {
-          setUserDetails(data);
-        });
+      }).then((r) => {
+        if (r.ok) {
+          r.json().then((user) => {
+            console.log(user)
+            setUserDetails(user);
+          });
+        } else {
+          r.json().then((err) => {
+            console.log(err)
+            setDisplayText(
+              `${form.name} is a taken username! Please select another. \n \n May we suggest:\n \n ${form.name}69\n ${form.name}420\n xX${form.name}Xx\n the_real_${form.name}`
+            );
+            e.target.reset();
+          });
+        }
+      });
       setCollectedUser(true);
       setCurrRoom(1);
-      setDisplayText(`Welcome ${form.username}, you've been abducted! \n \n \n Interact with the world by using commands on objects in it. \n
+      setDisplayText(`Welcome ${form.name}, you've been abducted! \n \n \n Interact with the world by using commands on objects in it. \n
                 Format your messages in the form of a COMMAND OBJECT \n
                 Not all commands will work on all objects! ex You can't TAKE a person or TALK to a window! \n
                 ~~~ COMMANDS ~~~ \n
@@ -88,7 +82,7 @@ const GameStart = ({
           autoComplete="off"
           className="no-outline"
           onChange={handleChange}
-          name="username"
+          name="name"
           placeholder="main://>>username"
           type="text"
         ></input>

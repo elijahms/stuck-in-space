@@ -1,16 +1,14 @@
 class Api::UsersController < ApplicationController
 
   def create
-    new_user =
-      User.create(
-        name: params[:username],
-        health: 3,
-        score: 0,
-        is_dead: 0,
-        room_id: 0,
-        email: params[:email],
-      )
-    render json: new_user
+    user =
+    User.create!(user_params)
+    User.update(health: 3, score: 0, is_dead: 0, room_id: 0)
+    User.save
+    if user.valid?
+        session[:user_id] = user.id
+        render json: user, status: :created
+    end
   end
 
   def score
@@ -35,4 +33,12 @@ class Api::UsersController < ApplicationController
     render json: all_user_stats
   end
 
+  private
+
+    def user_params
+    params.permit(
+      :name,
+      :email
+    )
+  end
 end
