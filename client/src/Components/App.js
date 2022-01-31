@@ -10,7 +10,7 @@ function App() {
       <HeaderFile />
       <NavBar />
       <Switch>
-        <Route path="/leaderboard">
+        <Route exact path="/leaderboard">
           <Leaderboard />
         </Route>
         <Route path="/">

@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.348773dd.css",
+    "main.js": "/static/js/main.e9d7fa05.js",
+    "static/media/Modeseven-L3n5.ttf": "/static/media/Modeseven-L3n5.8cd71d7c10417596d6d8.ttf",
+    "index.html": "/index.html",
+    "main.348773dd.css.map": "/static/css/main.348773dd.css.map",
+    "main.e9d7fa05.js.map": "/static/js/main.e9d7fa05.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.348773dd.css",
+    "static/js/main.e9d7fa05.js"
+  ]
+}
