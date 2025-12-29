@@ -1,42 +1,136 @@
-# stuck-in-space - Addictive old-school videogame
+# Stuck in Space 🚀
 
-Is an old command line interface aliens game is missing in your life, check out stuck-in-space. Try and escape the aliens, but beware of Jeff Bezos!
+A retro text adventure game where you wake up on an alien spaceship and must escape before they probe you! Built with Next.js 16, React 19, and Firebase.
 
-[Enjoy the project here!](https://stuckinspace.herokuapp.com/)
+![Stuck in Space](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
+![Firebase](https://img.shields.io/badge/Firebase-Hosting-orange?logo=firebase)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
 
-## Description
+## 🎮 Play the Game
 
-While developing my coding skills, the idea of building a game intrigued me. I wanted to make something fun, compelling, and complicated. stuck-in-space takes in simple user commands, as the user navigates through a series of rooms, trying to escape the aliens!
+[Play Stuck in Space](https://your-firebase-url.web.app) _(Update after deployment)_
 
 ## Features
 
-- Command parsing. Five differnent commands + over a dozen 'items' can be typed into the game and understood (e.g. "Inspect window").
-- Cascading actions (e.g. picking up an item in an earlier room will effect a later room).
-- Multiple ways to exit a level.
-- Leaderboard
+- **Classic text adventure gameplay** - Navigate through rooms using typed commands
+- **5 unique rooms** - Cell, Laboratory, Hallway, Airlock, and the Blue Origin Space Cruise
+- **22 interactive items** - Inspect, take, attack, talk, and use items to solve puzzles
+- **Multiple endings** - Die in creative ways or escape to victory
+- **Leaderboard** - Compete for the highest score
+- **Retro CRT aesthetic** - Authentic terminal experience with scanlines and glow effects
 
-## Technologies
+## Commands
 
-Project is created with:
+| Command | Description |
+|---------|-------------|
+| `INSPECT [item]` | Get a detailed description of an object |
+| `TAKE [item]` | Add an item to your inventory |
+| `TALK [item/person]` | Speak to someone or something |
+| `ATTACK [item/person]` | Attack an object or person |
+| `USE [inventory item] ON [room item]` | Use an inventory item on something in the room |
+| `H` or `HELP` | Show the help menu |
+| `I` or `INVENTORY` | View items you're carrying |
+| `R` or `RETURN` | Return to the room description |
+| `E` or `EXIT` | Exit the room (when objectives are complete) |
 
-- React.js version 17.0.2
-- Ruby version 2.7.4
-- Rails version 7.0.0
-- Semantic UI - (for styling)
-- Heroku
-- Typewriter Effect version 2.18
+## Local Development
 
-## Setup
+### Prerequisites
 
-To run this project, install it locally using npm:
+- Node.js 18+ 
+- npm
+- Firebase project (for leaderboard functionality)
+
+### Setup
+
+1. **Clone and install dependencies:**
+   ```bash
+   git clone https://github.com/yourusername/stuck-in-space.git
+   cd stuck-in-space
+   npm install
+   ```
+
+2. **Configure Firebase:**
+   
+   Copy `env.example` to `.env.local` and fill in your Firebase credentials:
+   ```bash
+   cp env.example .env.local
+   ```
+   
+   Get your credentials from the [Firebase Console](https://console.firebase.google.com/):
+   - Go to Project Settings → General → Your apps
+   - Copy the config values
+
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   
+   Open [http://localhost:3000](http://localhost:3000)
+
+## Deploy to Firebase
+
+### Prerequisites
+
+- Firebase CLI: `npm install -g firebase-tools`
+- Logged in: `firebase login`
+
+### Deployment Steps
+
+1. **Initialize Firebase (first time only):**
+   ```bash
+   firebase init
+   ```
+   Select:
+   - Hosting (configure files for Firebase Hosting)
+   - Firestore (for leaderboard)
+   - Use existing project → select your project
+   - Use `out` as public directory
+   - Configure as single-page app: Yes
+   - Don't overwrite `firebase.json`
+
+2. **Build and deploy:**
+   ```bash
+   npm run build
+   firebase deploy
+   ```
+
+3. **Deploy Firestore rules:**
+   ```bash
+   firebase deploy --only firestore:rules
+   ```
+
+## Tech Stack
+
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| Next.js | 16.1.1 | React framework with App Router |
+| React | 19.2.3 | UI library |
+| TypeScript | 5.x | Type safety |
+| Tailwind CSS | 4.x | Styling |
+| Firebase | 12.7.0 | Firestore DB + Hosting |
+| typewriter-effect | 2.22.0 | Typewriter text animation |
+
+## Project Structure
 
 ```
-$ cd ../stuck-in-space
-$ npm start --prefix client
-$ rails s
-
+stuck-in-space/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx          # Main game component
+│   │   ├── leaderboard/      # Leaderboard page
+│   │   ├── layout.tsx        # Root layout
+│   │   └── globals.css       # CRT/space theme styles
+│   └── lib/
+│       ├── firebase.ts       # Firebase initialization
+│       └── gameData.ts       # All game data (rooms, items)
+├── firebase.json             # Firebase hosting config
+├── firestore.rules           # Firestore security rules
+└── env.example               # Environment variable template
 ```
 
-## Contact
+## Credits
 
-Created by [@elijahsilverman](https://elijahsilverman.com) - feel free to contact me!
+Created by [@elijahsilverman](https://elijahsilverman.com)
+
+Originally built in 2022 with Ruby on Rails + React. Modernized in 2024 with Next.js + Firebase.
